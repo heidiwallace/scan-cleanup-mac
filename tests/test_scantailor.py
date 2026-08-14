@@ -4,12 +4,15 @@ from pathlib import Path
 import cv2
 import numpy as np
 import pytest
+from PIL import Image
 
 from scan_cleanup.scantailor import (
     ScanTailorError,
+    default_template_path,
     expected_tiff_names,
     generate_project,
     validate_output,
+    validate_tiff_dpi,
 )
 
 
@@ -45,6 +48,17 @@ def write_template(path: Path, page_count: int = 2) -> Path:
 
 def write_page(path: Path, width: int, height: int) -> None:
     assert cv2.imwrite(str(path), np.full((height, width), 255, dtype=np.uint8))
+
+
+def test_bundled_template_contains_saved_40_page_600_dpi_project():
+    root = ET.parse(default_template_path()).getroot()
+
+    assert len(root.findall("./pages/page")) == 40
+    output_dpis = {
+        int(node.attrib["horizontal"])
+        for node in root.findall("./filters/output/page/params/dpi")
+    }
+    assert output_dpis == {600}
 
 
 def test_generate_project_retargets_files_and_preserves_geometry(tmp_path):
@@ -117,3 +131,24 @@ def test_expected_tiff_names_follow_extracted_page_names():
         "volume-10.tif",
         "volume-100.tif",
     ]
+
+
+def test_validate_tiff_dpi_reads_actual_metadata(tmp_path):
+    paths = []
+    for index in range(2):
+        path = tmp_path / f"page-{index}.tif"
+        Image.fromarray(np.full((5, 5), 255, dtype=np.uint8)).save(path, dpi=(600, 600))
+        paths.append(path)
+
+    assert validate_tiff_dpi(paths) == 600
+
+
+def test_validate_tiff_dpi_rejects_mixed_resolutions(tmp_path):
+    paths = []
+    for index, dpi in enumerate((300, 600)):
+        path = tmp_path / f"page-{index}.tif"
+        Image.fromarray(np.full((5, 5), 255, dtype=np.uint8)).save(path, dpi=(dpi, dpi))
+        paths.append(path)
+
+    with pytest.raises(ScanTailorError, match="inconsistent DPI"):
+        validate_tiff_dpi(paths)

@@ -11,6 +11,7 @@ from importlib.resources import files
 from pathlib import Path
 
 import cv2
+from PIL import Image
 
 
 class ScanTailorError(RuntimeError):
@@ -168,3 +169,27 @@ def validate_output(output_dir: Path, expected_names: list[str]) -> list[Path]:
         )
 
     return [actual[name] for name in expected_names]
+
+
+def validate_tiff_dpi(tiff_paths: list[Path]) -> int:
+    """Return the actual uniform TIFF DPI, rejecting absent or mixed metadata."""
+    resolutions = []
+    for path in tiff_paths:
+        with Image.open(path) as image:
+            dpi = image.info.get("dpi")
+        if not dpi or len(dpi) != 2:
+            raise ScanTailorError(f"TIFF has no usable DPI metadata: {path.name}")
+        horizontal, vertical = (round(float(value)) for value in dpi)
+        if horizontal <= 0 or vertical <= 0 or horizontal != vertical:
+            raise ScanTailorError(
+                f"TIFF has invalid or non-square DPI metadata: {path.name} ({dpi})"
+            )
+        resolutions.append(horizontal)
+
+    unique = sorted(set(resolutions))
+    if len(unique) != 1:
+        raise ScanTailorError(
+            "ScanTailor TIFFs have inconsistent DPI metadata: "
+            + ", ".join(str(value) for value in unique)
+        )
+    return unique[0]

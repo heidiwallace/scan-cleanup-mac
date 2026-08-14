@@ -17,6 +17,8 @@ The archive checksum is stored beside it.
 ## Important guarantees
 
 - Page order comes from `workspace.json`, never directory enumeration.
+- Final physical page size uses validated DPI metadata from the actual TIFFs,
+  not the template value (users may change output DPI inside ScanTailor).
 - ScanTailor output must exactly match the expected TIFF list.
 - Missing, extra, or unreadable TIFFs preserve the workspace and stop the run.
 - `scan-cleanup resume WORKSPACE OUTPUT_DIR` reopens the same project.
@@ -35,7 +37,9 @@ rejects inputs with any other page count rather than applying undefined settings
 The template's run-specific fields are replaced: source directory, filenames,
 pixel dimensions, source DPI, and output directory. Internal IDs remain stable,
 allowing all filter settings to continue referring to their corresponding page.
-The template output DPI is 1200.
+The template was updated from the project saved during the first successful
+end-to-end test. Its output DPI is 600 and it includes the user's saved settings
+from that test session.
 
 ## ScanTailor development executable
 

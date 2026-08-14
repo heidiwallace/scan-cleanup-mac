@@ -14,6 +14,7 @@ dependencies = [
     "numpy>=1.26",
     "img2pdf>=0.5",
     "ocrmypdf>=16.0",
+    "pillow>=10.0",
 ]
 
 [project.scripts]

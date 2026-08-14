@@ -16,10 +16,12 @@ complete one-to-one filename validation.
 
 ## Current development scope
 
-The bundled project template contains page-specific geometry and transformations
-for exactly 40 pages. At the user's request, those settings are retained by
-ordinal position. Inputs with a different page count stop with a clear error and
-preserve their workspace. Generalizing templates to other page counts is planned.
+The bundled project template contains the settings saved during the first
+successful end-to-end test, including 600 DPI output and page-specific geometry
+and transformations for exactly 40 pages. At the user's request, those settings
+are retained by ordinal position. Inputs with a different page count stop with a
+clear error and preserve their workspace. Generalizing templates to other page
+counts is planned.
 
 Successful workspaces are also retained during development. The release version
 will delete them only after the final OCR PDF has been verified. Failed

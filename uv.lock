@@ -989,6 +989,7 @@ dependencies = [
     { name = "numpy" },
     { name = "ocrmypdf" },
     { name = "opencv-python-headless" },
+    { name = "pillow" },
     { name = "pymupdf" },
 ]
 
@@ -1004,6 +1005,7 @@ requires-dist = [
     { name = "numpy", specifier = ">=1.26" },
     { name = "ocrmypdf", specifier = ">=16.0" },
     { name = "opencv-python-headless", specifier = ">=4.10" },
+    { name = "pillow", specifier = ">=10.0" },
     { name = "pymupdf", specifier = ">=1.24" },
 ]
 

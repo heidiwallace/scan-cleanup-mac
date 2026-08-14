@@ -14,6 +14,7 @@ from scan_cleanup.scantailor import (
     launch_scantailor,
     resolve_scantailor,
     validate_output,
+    validate_tiff_dpi,
 )
 from scan_cleanup.workspace import WorkspaceManifest, create_workspace
 
@@ -87,6 +88,7 @@ def finish_workspace(
     workspace = workspace.resolve()
     manifest = WorkspaceManifest.load(workspace)
     tiff_paths = validate_output(workspace / "out", manifest.expected_tiffs)
+    actual_output_dpi = validate_tiff_dpi(tiff_paths)
     output_dir = output_dir.resolve()
     output_pdf = output_dir / f"{Path(manifest.input_pdf).stem}_processed.pdf"
     if output_pdf.exists() and not overwrite:
@@ -94,7 +96,14 @@ def finish_workspace(
 
     output_dir.mkdir(parents=True, exist_ok=True)
     assembled_pdf = workspace / "assembled.pdf"
-    images_to_pdf(tiff_paths, assembled_pdf, dpi=manifest.output_dpi)
+    if actual_output_dpi != manifest.output_dpi:
+        logger.info(
+            "ScanTailor output DPI differs from the initial project template: %d -> %d; "
+            "using TIFF metadata",
+            manifest.output_dpi,
+            actual_output_dpi,
+        )
+    images_to_pdf(tiff_paths, assembled_pdf, dpi=actual_output_dpi)
     ocr_pdf = workspace / "ocr-output.pdf"
     if ocr_pdf.exists():
         ocr_pdf.unlink()

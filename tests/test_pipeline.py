@@ -7,6 +7,7 @@ import img2pdf
 import numpy as np
 import pymupdf
 import pytest
+from PIL import Image
 
 from scan_cleanup import pipeline
 from scan_cleanup.config import Recipe
@@ -42,7 +43,7 @@ def test_process_volume_runs_interactive_pipeline_in_order(tmp_path, monkeypatch
         workspace = project.parent
         for png in sorted((workspace / "input").glob("*.png"), reverse=True):
             image = cv2.imread(str(png), cv2.IMREAD_UNCHANGED)
-            assert cv2.imwrite(str(workspace / "out" / f"{png.stem}.tif"), image)
+            Image.fromarray(image).save(workspace / "out" / f"{png.stem}.tif", dpi=(1200, 1200))
 
     monkeypatch.setattr(pipeline, "launch_scantailor", fake_launch)
     monkeypatch.setattr(pipeline, "add_ocr_layer", fake_ocr)
@@ -108,7 +109,7 @@ def test_resume_reopens_project_and_finishes(tmp_path, monkeypatch):
         launched.append(project)
         for name in manifest.expected_tiffs:
             image = np.full((20, 20), 255, dtype=np.uint8)
-            assert cv2.imwrite(str(workspace / "out" / name), image)
+            Image.fromarray(image).save(workspace / "out" / name, dpi=(300, 300))
 
     monkeypatch.setattr(pipeline, "launch_scantailor", fake_launch)
     monkeypatch.setattr(pipeline, "add_ocr_layer", fake_ocr)
