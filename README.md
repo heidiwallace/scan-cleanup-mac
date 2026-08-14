@@ -19,10 +19,11 @@ complete one-to-one filename validation.
 The bundled project template contains the settings saved during the first
 successful end-to-end test, including 600 DPI output and page-specific
 transformations for exactly 40 pages. Saved Select Content and Page Layout
-geometry is cleared when a default project is generated, and both automatic
-content and page detection start disabled. The user sets that geometry manually
-in ScanTailor. Inputs with a different page count stop with a clear error and
-preserve their workspace. Generalizing templates to other page counts is planned.
+geometry is cleared when a default project is generated. Content detection starts
+disabled; Page Box detection starts on Auto with Fine Tune Page Corners enabled.
+Page Layout starts with "Match size with other pages" unchecked. Inputs with a
+different page count stop with a clear error and preserve their workspace.
+Generalizing templates to other page counts is planned.
 
 Successful workspaces are also retained during development. The release version
 will delete them only after the final OCR PDF has been verified. Failed

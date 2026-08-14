@@ -73,12 +73,27 @@ def test_default_geometry_reset_disables_detection_and_clears_saved_layout():
     for params in root.findall("./filters/select-content/page/params"):
         assert params.attrib == {
             "contentDetectionMode": "disabled",
-            "fineTuneCorners": "0",
-            "pageDetectionMode": "disabled",
+            "fineTuneCorners": "1",
+            "pageDetectionMode": "auto",
         }
         assert list(params) == []
 
-    assert root.findall("./filters/page-layout/page") == []
+    layout_pages = root.findall("./filters/page-layout/page")
+    assert [page.attrib["id"] for page in layout_pages] == project_page_ids
+    for params in root.findall("./filters/page-layout/page/params"):
+        assert params.find("pageRect").attrib == {
+            "height": "0",
+            "width": "0",
+            "x": "0",
+            "y": "0",
+        }
+        assert params.find("contentRect").attrib == {
+            "height": "0",
+            "width": "0",
+            "x": "0",
+            "y": "0",
+        }
+        assert params.find("alignment").attrib["null"] == "1"
     assert root.findall("./filters/output/page/output-params") == []
     assert len(root.findall("./filters/output/page/params")) == 40
 

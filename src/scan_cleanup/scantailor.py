@@ -81,14 +81,29 @@ def _reset_default_geometry(root: ET.Element) -> None:
             page,
             "params",
             contentDetectionMode="disabled",
-            fineTuneCorners="0",
-            pageDetectionMode="disabled",
+            fineTuneCorners="1",
+            pageDetectionMode="auto",
         )
 
     page_layout = root.find("./filters/page-layout")
     if page_layout is None:
         raise ScanTailorError("Default template has no page-layout filter")
     page_layout[:] = []
+    for project_page in project_pages:
+        page = ET.SubElement(page_layout, "page", id=project_page.attrib["id"])
+        params = ET.SubElement(page, "params", autoMargins="0")
+        ET.SubElement(
+            params,
+            "hardMarginsMM",
+            bottom="0",
+            left="0",
+            right="0",
+            top="0",
+        )
+        ET.SubElement(params, "pageRect", height="0", width="0", x="0", y="0")
+        ET.SubElement(params, "contentRect", height="0", width="0", x="0", y="0")
+        ET.SubElement(params, "contentSizeMM", height="0", width="0")
+        ET.SubElement(params, "alignment", hor="center", null="1", vert="center")
 
     # These are rendered-image cache records, not user output settings.  They
     # depend on the old crop/layout geometry and must not follow it forward.

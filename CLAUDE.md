@@ -32,10 +32,11 @@ The bundled version-4 project is at
 `src/scan_cleanup/templates/scantailor-advanced-default.scantailor`.
 It preserves page-specific transformations by ordinal. When generating a project
 from the bundled template, the package clears saved Select Content and Page
-Layout geometry and disables both automatic content and page detection. Geometry
-is therefore set manually in ScanTailor. The template contains exactly 40 pages,
-so the current generator deliberately rejects inputs with any other page count
-rather than applying undefined settings.
+Layout geometry. Content detection remains disabled, while automatic Page Box
+detection has Fine Tune Page Corners enabled. Page Layout defaults to not matching
+the page size with other pages. The template contains exactly 40 pages, so the
+current generator deliberately rejects inputs with any other page count rather
+than applying undefined settings.
 
 The template's run-specific fields are replaced: source directory, filenames,
 pixel dimensions, source DPI, and output directory. Internal IDs remain stable,
