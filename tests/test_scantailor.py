@@ -8,6 +8,7 @@ from PIL import Image
 
 from scan_cleanup.scantailor import (
     ScanTailorError,
+    _reset_default_geometry,
     default_template_path,
     expected_tiff_names,
     generate_project,
@@ -59,6 +60,27 @@ def test_bundled_template_contains_saved_40_page_600_dpi_project():
         for node in root.findall("./filters/output/page/params/dpi")
     }
     assert output_dpis == {600}
+
+
+def test_default_geometry_reset_disables_detection_and_clears_saved_layout():
+    root = ET.parse(default_template_path()).getroot()
+
+    _reset_default_geometry(root)
+
+    project_page_ids = [page.attrib["id"] for page in root.findall("./pages/page")]
+    content_pages = root.findall("./filters/select-content/page")
+    assert [page.attrib["id"] for page in content_pages] == project_page_ids
+    for params in root.findall("./filters/select-content/page/params"):
+        assert params.attrib == {
+            "contentDetectionMode": "disabled",
+            "fineTuneCorners": "0",
+            "pageDetectionMode": "disabled",
+        }
+        assert list(params) == []
+
+    assert root.findall("./filters/page-layout/page") == []
+    assert root.findall("./filters/output/page/output-params") == []
+    assert len(root.findall("./filters/output/page/params")) == 40
 
 
 def test_generate_project_retargets_files_and_preserves_geometry(tmp_path):

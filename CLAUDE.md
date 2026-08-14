@@ -30,13 +30,17 @@ The archive checksum is stored beside it.
 
 The bundled version-4 project is at
 `src/scan_cleanup/templates/scantailor-advanced-default.scantailor`.
-It preserves all page-specific geometry and transformations by ordinal, as
-requested. It contains exactly 40 pages, so the current generator deliberately
-rejects inputs with any other page count rather than applying undefined settings.
+It preserves page-specific transformations by ordinal. When generating a project
+from the bundled template, the package clears saved Select Content and Page
+Layout geometry and disables both automatic content and page detection. Geometry
+is therefore set manually in ScanTailor. The template contains exactly 40 pages,
+so the current generator deliberately rejects inputs with any other page count
+rather than applying undefined settings.
 
 The template's run-specific fields are replaced: source directory, filenames,
 pixel dimensions, source DPI, and output directory. Internal IDs remain stable,
 allowing all filter settings to continue referring to their corresponding page.
+Stale rendered-output cache records are removed along with the saved geometry.
 The template was updated from the project saved during the first successful
 end-to-end test. Its output DPI is 600 and it includes the user's saved settings
 from that test session.

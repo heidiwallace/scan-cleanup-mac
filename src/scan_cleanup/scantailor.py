@@ -67,6 +67,37 @@ def _template_output_dpi(root: ET.Element) -> int:
     return int(dpi.attrib["horizontal"])
 
 
+def _reset_default_geometry(root: ET.Element) -> None:
+    """Remove page-specific crop/layout geometry from the bundled defaults."""
+    project_pages = root.findall("./pages/page")
+
+    select_content = root.find("./filters/select-content")
+    if select_content is None:
+        raise ScanTailorError("Default template has no select-content filter")
+    select_content[:] = []
+    for project_page in project_pages:
+        page = ET.SubElement(select_content, "page", id=project_page.attrib["id"])
+        ET.SubElement(
+            page,
+            "params",
+            contentDetectionMode="disabled",
+            fineTuneCorners="0",
+            pageDetectionMode="disabled",
+        )
+
+    page_layout = root.find("./filters/page-layout")
+    if page_layout is None:
+        raise ScanTailorError("Default template has no page-layout filter")
+    page_layout[:] = []
+
+    # These are rendered-image cache records, not user output settings.  They
+    # depend on the old crop/layout geometry and must not follow it forward.
+    for output_page in root.findall("./filters/output/page"):
+        cached = output_page.find("output-params")
+        if cached is not None:
+            output_page.remove(cached)
+
+
 def generate_project(
     page_paths: list[Path],
     output_dir: Path,
@@ -75,9 +106,13 @@ def generate_project(
     template_path: Path | None = None,
 ) -> int:
     """Generate a project while preserving template settings page-for-page."""
+    using_default_template = template_path is None
     template_path = template_path or default_template_path()
     tree = ET.parse(template_path)
     root = tree.getroot()
+
+    if using_default_template:
+        _reset_default_geometry(root)
 
     files_node = root.find("files")
     images_node = root.find("images")
