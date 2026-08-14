@@ -1,0 +1,36 @@
+[project]
+name = "scan-cleanup"
+version = "0.2.0"
+description = "Coordinate ScanTailor Advanced cleanup and OCR for scanned PDFs"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Heidi Wallace", email = "heidi.wallace.396@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pymupdf>=1.24",
+    "opencv-python-headless>=4.10",
+    "numpy>=1.26",
+    "img2pdf>=0.5",
+    "ocrmypdf>=16.0",
+]
+
+[project.scripts]
+scan-cleanup = "scan_cleanup.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
