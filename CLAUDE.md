@@ -46,14 +46,10 @@ The template was updated from the project saved during the first successful
 end-to-end test. Its output DPI is 600 and it includes the user's saved settings
 from that test session.
 
-## ScanTailor development executable
-
-```text
-/Users/heidiwallace/Documents/Rendleman/scantailor-advanced/build/scantailor-advanced
-```
+## ScanTailor executable
 
 The executable accepts a `.ScanTailor` project as its first argument. The
-launcher also supports an explicit `--scantailor` path, the
+launcher supports an explicit `--scantailor` path, the
 `SCANTAILOR_ADVANCED` environment variable, PATH discovery, and conventional
 macOS application locations.
 

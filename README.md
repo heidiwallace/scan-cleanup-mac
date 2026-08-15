@@ -42,7 +42,10 @@ set `SCANTAILOR_ADVANCED`.
 
 ## Installation
 
+From a clone of the repository, create the locked development environment:
+
 ```bash
+cd scan-cleanup
 uv sync
 ```
 
@@ -67,11 +70,11 @@ OUTPUT_DIRECTORY/INPUT_processed.pdf
 
 If that file already exists, the CLI asks before replacing it.
 
-For the current development build on this Mac:
+For a local ScanTailor Advanced build:
 
 ```bash
 uv run scan-cleanup process tests/data/MH_1976_vIV_bio_1-40.pdf output \
-  --scantailor /Users/heidiwallace/Documents/Rendleman/scantailor-advanced/build/scantailor-advanced \
+  --scantailor /path/to/scantailor-advanced \
   --workspace-root development-workspaces
 ```
 
@@ -107,6 +110,9 @@ uv run pytest
 uv run ruff check .
 uv build
 ```
+
+The GitHub Actions workflow performs the same lint, test, and package-build
+checks on pushes and pull requests.
 
 The pre-revamp Python image-processing implementation is stored under
 `.snapshots/` with a SHA-256 checksum and is not part of the new Git history.
