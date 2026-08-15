@@ -31,6 +31,11 @@ def _add_runtime_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--dpi", type=int, default=300, help="Source scan DPI used for project metadata"
     )
+    parser.add_argument(
+        "--keep-workspace",
+        action="store_true",
+        help="Retain a successful workspace for development or inspection",
+    )
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -57,6 +62,11 @@ def build_parser() -> argparse.ArgumentParser:
     resume_parser.add_argument("workspace", type=Path)
     resume_parser.add_argument("output_dir", type=Path)
     resume_parser.add_argument("--scantailor", type=Path)
+    resume_parser.add_argument(
+        "--keep-workspace",
+        action="store_true",
+        help="Retain the workspace after successful completion",
+    )
 
     return parser
 
@@ -92,13 +102,20 @@ def main(argv: list[str] | None = None) -> int:
             result = resume_workspace(
                 args.workspace,
                 args.output_dir,
+                recipe=replace(
+                    Recipe(), cleanup_workspace_on_success=not args.keep_workspace
+                ),
                 scantailor_executable=args.scantailor,
                 overwrite=destination.exists(),
             )
             print(result)
             return 0
 
-        recipe = replace(Recipe(), source_dpi=args.dpi)
+        recipe = replace(
+            Recipe(),
+            source_dpi=args.dpi,
+            cleanup_workspace_on_success=not args.keep_workspace,
+        )
         if args.command == "process":
             destination = _output_path(args.input_pdf, args.output_dir)
             if not _confirm_overwrite(destination):

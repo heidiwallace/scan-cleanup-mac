@@ -59,9 +59,36 @@ def test_process_volume_runs_interactive_pipeline_in_order(tmp_path, monkeypatch
 
     assert result == output_dir / "volume_processed.pdf"
     assert len(pymupdf.open(result)) == 2
-    workspaces = list(workspace_root.iterdir())
-    assert len(workspaces) == 1
-    manifest = WorkspaceManifest.load(workspaces[0])
+    assert list(workspace_root.iterdir()) == []
+
+
+def test_process_volume_can_retain_successful_workspace(tmp_path, monkeypatch):
+    input_pdf = build_pdf(tmp_path)
+    workspace_root = tmp_path / "workspaces"
+    template = write_template(tmp_path / "template.ScanTailor")
+
+    def fake_launch(executable: Path, project: Path) -> None:
+        workspace = project.parent
+        for png in sorted((workspace / "input").glob("*.png")):
+            image = cv2.imread(str(png), cv2.IMREAD_UNCHANGED)
+            Image.fromarray(image).save(
+                workspace / "out" / f"{png.stem}.tif", dpi=(1200, 1200)
+            )
+
+    monkeypatch.setattr(pipeline, "launch_scantailor", fake_launch)
+    monkeypatch.setattr(pipeline, "add_ocr_layer", fake_ocr)
+
+    pipeline.process_volume(
+        input_pdf,
+        tmp_path / "final",
+        recipe=Recipe(cleanup_workspace_on_success=False),
+        scantailor_executable=Path(sys.executable),
+        workspace_root=workspace_root,
+        template_path=template,
+    )
+
+    workspace = next(workspace_root.iterdir())
+    manifest = WorkspaceManifest.load(workspace)
     assert manifest.expected_tiffs == ["volume-01.tif", "volume-02.tif"]
 
 
@@ -119,3 +146,4 @@ def test_resume_reopens_project_and_finishes(tmp_path, monkeypatch):
     assert launched == [workspace / "project.ScanTailor"]
     assert result == tmp_path / "new-output/volume_processed.pdf"
     assert result.is_file()
+    assert not workspace.exists()

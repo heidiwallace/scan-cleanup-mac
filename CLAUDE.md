@@ -58,10 +58,11 @@ to be addressed only after the working package is validated.
 
 ## Workspace lifecycle
 
-Development workspaces are retained on success for inspection. The final release
-will set cleanup-on-success after full verification. Failures always retain the
-workspace. A workspace contains `input/`, `out/`, `project.ScanTailor`,
-`workspace.json`, and later `assembled.pdf`.
+Successful workspaces are deleted by default after the final OCR PDF is safely
+moved into place. The CLI's `--keep-workspace` option disables cleanup for
+development and inspection. Failures always retain the workspace. A workspace
+contains `input/`, `out/`, `project.ScanTailor`, `workspace.json`, and later
+`assembled.pdf`.
 
 ## Validation
 

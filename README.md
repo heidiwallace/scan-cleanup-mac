@@ -25,9 +25,9 @@ Page Layout starts with "Match size with other pages" unchecked. Inputs with a
 different page count stop with a clear error and preserve their workspace.
 Generalizing templates to other page counts is planned.
 
-Successful workspaces are also retained during development. The release version
-will delete them only after the final OCR PDF has been verified. Failed
-workspaces are always retained.
+Successful workspaces are deleted after the final OCR PDF has been written.
+Failed or incomplete workspaces are always retained. During development, pass
+`--keep-workspace` to retain a successful workspace for inspection.
 
 ## Requirements
 
@@ -82,6 +82,10 @@ ScanTailor opens the generated project automatically. Review or adjust its
 settings, process all pages at the Output stage, and then close the application.
 The Python command resumes after the ScanTailor process exits.
 
+On success, only the original input PDF and final processed PDF are retained.
+Use `--keep-workspace` when intermediate PNGs, TIFFs, the project, and the
+pre-OCR assembled PDF are needed for development or inspection.
+
 ## Resume a failed workspace
 
 If ScanTailor closes with missing, extra, or unreadable TIFFs, the command stops
@@ -92,7 +96,8 @@ uv run scan-cleanup resume WORKSPACE OUTPUT_DIRECTORY
 ```
 
 The same ScanTailor project reopens. After it closes, validation, PDF assembly,
-and OCR are attempted again.
+and OCR are attempted again. A successful resume deletes the workspace unless
+`--keep-workspace` is supplied.
 
 ## Batch processing
 
