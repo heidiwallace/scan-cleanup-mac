@@ -8,6 +8,7 @@ dist/
 .DS_Store
 .snapshots/
 development-workspaces/
+CLAUDE.md
 
 # Real scan data used for local/manual testing: potentially large and/or
 # contains real archival content, never committed.
