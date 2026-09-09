@@ -124,15 +124,57 @@ def test_generate_project_retargets_files_and_preserves_geometry(tmp_path):
     assert root.find("./filters/deskew/page/rotation").attrib["value"] == "0.25"
 
 
-def test_generate_project_rejects_page_count_mismatch(tmp_path):
-    page = tmp_path / "one.png"
-    write_page(page, 10, 10)
+def test_generate_project_truncates_template_for_fewer_pages(tmp_path):
+    input_dir = tmp_path / "input"
+    input_dir.mkdir()
+    page_paths = [input_dir / "volume-01.png"]
+    write_page(page_paths[0], 80, 120)
+    template = write_template(tmp_path / "template.ScanTailor", page_count=2)
+    project = tmp_path / "project.ScanTailor"
 
-    with pytest.raises(ScanTailorError, match="settings for 2 pages"):
-        generate_project(
-            [page], tmp_path / "out", tmp_path / "project.ScanTailor", 300,
-            write_template(tmp_path / "template.ScanTailor"),
-        )
+    generate_project(page_paths, tmp_path / "out", project, 300, template)
+
+    root = ET.parse(project).getroot()
+    assert [f.attrib["name"] for f in root.findall("./files/file")] == ["volume-01.png"]
+    assert len(root.findall("./images/image")) == 1
+    assert len(root.findall("./pages/page")) == 1
+    assert len(root.findall("./filters/deskew/page")) == 1
+    assert root.find("./filters/deskew/page").attrib["id"] == root.find("./pages/page").attrib["id"]
+    assert len(root.findall("./filters/output/page")) == 1
+
+
+def test_generate_project_extends_template_for_more_pages_by_cloning_last_page(tmp_path):
+    input_dir = tmp_path / "input"
+    input_dir.mkdir()
+    page_paths = [input_dir / f"volume-{i:02d}.png" for i in range(1, 4)]
+    for index, page_path in enumerate(page_paths):
+        write_page(page_path, 80 + index, 120 + index)
+    template = write_template(tmp_path / "template.ScanTailor", page_count=2)
+    project = tmp_path / "project.ScanTailor"
+
+    generate_project(page_paths, tmp_path / "out", project, 300, template)
+
+    root = ET.parse(project).getroot()
+    assert [f.attrib["name"] for f in root.findall("./files/file")] == [
+        "volume-01.png",
+        "volume-02.png",
+        "volume-03.png",
+    ]
+    page_ids = [p.attrib["id"] for p in root.findall("./pages/page")]
+    assert len(page_ids) == 3
+    assert len(set(page_ids)) == 3
+
+    # Page 3 was cloned from page 2 (the template's last page): its deskew and
+    # output-recipe settings match page 2's, but its filename/size/dpi are its own.
+    deskew_rotations = [p.find("rotation").attrib["value"] for p in root.findall("./filters/deskew/page")]
+    assert len(deskew_rotations) == 3
+    assert deskew_rotations[1] == deskew_rotations[2]
+    assert len(root.findall("./filters/output/page")) == 3
+    output_dpis = {
+        node.attrib["horizontal"] for node in root.findall("./filters/output/page/params/dpi")
+    }
+    assert output_dpis == {"1200"}
+    assert root.find("./images/image[3]/size").attrib == {"width": "82", "height": "122"}
 
 
 def test_validate_output_returns_manifest_order_not_directory_order(tmp_path):

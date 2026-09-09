@@ -2877,7 +2877,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -2906,7 +2906,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -2933,7 +2933,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -2962,7 +2962,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -2989,7 +2989,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3018,7 +3018,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3045,7 +3045,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3074,7 +3074,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3101,7 +3101,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3130,7 +3130,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3157,7 +3157,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3186,7 +3186,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3213,7 +3213,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3242,7 +3242,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3269,7 +3269,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3298,7 +3298,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3325,7 +3325,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3354,7 +3354,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3381,7 +3381,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3410,7 +3410,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3437,7 +3437,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3466,7 +3466,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3493,7 +3493,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3522,7 +3522,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3549,7 +3549,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3578,7 +3578,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3605,7 +3605,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3634,7 +3634,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3661,7 +3661,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3690,7 +3690,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3717,7 +3717,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3746,7 +3746,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3773,7 +3773,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3802,7 +3802,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3829,7 +3829,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3858,7 +3858,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3885,7 +3885,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3914,7 +3914,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3941,7 +3941,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -3970,7 +3970,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -3997,7 +3997,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4026,7 +4026,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4053,7 +4053,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4082,7 +4082,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4109,7 +4109,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4138,7 +4138,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4165,7 +4165,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4194,7 +4194,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4221,7 +4221,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4250,7 +4250,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4277,7 +4277,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4306,7 +4306,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4333,7 +4333,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4362,7 +4362,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4389,7 +4389,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4418,7 +4418,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4445,7 +4445,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4474,7 +4474,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4501,7 +4501,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4530,7 +4530,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4557,7 +4557,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4586,7 +4586,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4613,7 +4613,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4642,7 +4642,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4669,7 +4669,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4698,7 +4698,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4725,7 +4725,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4754,7 +4754,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4781,7 +4781,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4810,7 +4810,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4837,7 +4837,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4866,7 +4866,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4893,7 +4893,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4922,7 +4922,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -4949,7 +4949,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -4978,7 +4978,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -5005,7 +5005,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -5034,7 +5034,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>
@@ -5061,7 +5061,7 @@
             <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
               <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
             </color-or-grayscale>
-            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+            <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
               <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
             </bw>
           </color-params>
@@ -5090,7 +5090,7 @@
               <color-or-grayscale fillMargins="1" fillOffcut="1" fillOutsidePageBox="0" fillingColor="background" normalizeIlluminationColor="0" wienerCoef="0" wienerWinSize="5">
                 <posterization-options enabled="0" forceBlackAndWhite="1" level="4" normalizationEnabled="0"/>
               </color-or-grayscale>
-              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="0" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
+              <bw binarizationMethod="otsu" morphologicalSmoothing="1" normalizeIlluminationBW="1" sauvolaCoef="0.34" savitzkyGolaySmoothing="1" thresholdAdj="-15" windowSize="200" wolfCoef="0.3" wolfLowerBound="1" wolfUpperBound="254">
                 <color-segmenter-options blueThresholdAdjustment="0" enabled="0" greenThresholdAdjustment="0" noiseReduction="7" redThresholdAdjustment="0"/>
               </bw>
             </color-params>

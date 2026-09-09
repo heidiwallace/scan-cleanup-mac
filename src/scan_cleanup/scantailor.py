@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import os
 import shutil
 import subprocess
@@ -37,6 +38,12 @@ def resolve_scantailor(explicit: Path | None = None) -> Path:
     if sys.platform == "darwin":
         candidates.extend(
             [
+                # The documented, supported install location (see README): a plain
+                # `cmake --install --prefix <homebrew-prefix>` of ScanTailor Advanced,
+                # checked directly so discovery does not depend on PATH being set in
+                # every execution context (e.g. non-interactive shells, LaunchAgents).
+                Path("/opt/homebrew/bin/scantailor-advanced"),  # Apple Silicon Homebrew
+                Path("/usr/local/bin/scantailor-advanced"),  # Intel Homebrew
                 Path(
                     "/Applications/ScanTailor Advanced.app/Contents/MacOS/"
                     "scantailor-advanced"
@@ -65,6 +72,130 @@ def _template_output_dpi(root: ET.Element) -> int:
     if dpi is None or "horizontal" not in dpi.attrib:
         raise ScanTailorError("Template has no output DPI setting")
     return int(dpi.attrib["horizontal"])
+
+
+def _collect_max_id(root: ET.Element) -> int:
+    ids = [
+        int(value)
+        for element in root.iter()
+        for key, value in element.attrib.items()
+        if key in ("id", "imageId", "fileId") and value.isdigit()
+    ]
+    return max(ids, default=0)
+
+
+def _resize_page_list(container: ET.Element, tag: str, keep_ids: set[str]) -> None:
+    container[:] = [
+        child for child in container if child.tag != tag or child.attrib.get("id") in keep_ids
+    ]
+
+
+def _clone_page_entry(container: ET.Element, tag: str, source_id: str, new_id: str) -> None:
+    source = next(
+        (child for child in container if child.tag == tag and child.attrib.get("id") == source_id),
+        None,
+    )
+    if source is None:
+        return
+    clone = copy.deepcopy(source)
+    clone.set("id", new_id)
+    container.append(clone)
+
+
+def _resize_pages(root: ET.Element, target_count: int) -> None:
+    """Truncate or extend the template's page set to match the input PDF's page count.
+
+    Truncating keeps the first `target_count` template pages, in scan order.
+    Extending clones the last template page's files and per-page filter settings
+    (including the output recipe) for each additional page, under fresh ids.
+    Auto-detected geometry (page split, deskew, fix orientation) on cloned pages
+    is stale until the user reviews that page in ScanTailor Advanced, same as any
+    other auto-mode page; the output recipe (DPI, binarization, etc.) is meant to
+    be identical across pages regardless.
+    """
+    pages_node = root.find("pages")
+    images_node = root.find("images")
+    files_node = root.find("files")
+    disambiguation_node = root.find("file-name-disambiguation")
+    filters_node = root.find("filters")
+
+    page_units = list(pages_node)
+    current_count = len(page_units)
+    if target_count == current_count:
+        return
+
+    if target_count < current_count:
+        keep_page_ids = {page.attrib["id"] for page in page_units[:target_count]}
+        keep_image_ids = {page.attrib["imageId"] for page in page_units[:target_count]}
+        pages_node[:] = page_units[:target_count]
+        images_node[:] = [image for image in images_node if image.attrib["id"] in keep_image_ids]
+        keep_file_ids = {image.attrib["fileId"] for image in images_node}
+        files_node[:] = [file for file in files_node if file.attrib["id"] in keep_file_ids]
+        if disambiguation_node is not None:
+            disambiguation_node[:] = [
+                mapping
+                for mapping in disambiguation_node
+                if mapping.attrib.get("file") in keep_file_ids
+            ]
+        for filter_node in filters_node:
+            if filter_node.tag == "page-split":
+                _resize_page_list(filter_node, "image", keep_image_ids)
+                continue
+            _resize_page_list(filter_node, "page", keep_page_ids)
+            wrapper = filter_node.find("image-settings")
+            if wrapper is not None:
+                _resize_page_list(wrapper, "page", keep_page_ids)
+        return
+
+    last_page = page_units[-1]
+    last_page_id = last_page.attrib["id"]
+    last_image_id = last_page.attrib["imageId"]
+    last_image = next(image for image in images_node if image.attrib["id"] == last_image_id)
+    last_file_id = last_image.attrib["fileId"]
+    last_file = next(file for file in files_node if file.attrib["id"] == last_file_id)
+    last_mapping = None
+    if disambiguation_node is not None:
+        last_mapping = next(
+            (m for m in disambiguation_node if m.attrib.get("file") == last_file_id), None
+        )
+
+    next_id = _collect_max_id(root) + 1
+    for _ in range(target_count - current_count):
+        new_file_id, new_image_id, new_page_id = (
+            str(next_id),
+            str(next_id + 1),
+            str(next_id + 2),
+        )
+        next_id += 3
+
+        new_file = copy.deepcopy(last_file)
+        new_file.set("id", new_file_id)
+        files_node.append(new_file)
+
+        new_image = copy.deepcopy(last_image)
+        new_image.set("id", new_image_id)
+        new_image.set("fileId", new_file_id)
+        images_node.append(new_image)
+
+        new_page = copy.deepcopy(last_page)
+        new_page.set("id", new_page_id)
+        new_page.set("imageId", new_image_id)
+        new_page.attrib.pop("selected", None)
+        pages_node.append(new_page)
+
+        if disambiguation_node is not None and last_mapping is not None:
+            new_mapping = copy.deepcopy(last_mapping)
+            new_mapping.set("file", new_file_id)
+            disambiguation_node.append(new_mapping)
+
+        for filter_node in filters_node:
+            if filter_node.tag == "page-split":
+                _clone_page_entry(filter_node, "image", last_image_id, new_image_id)
+                continue
+            _clone_page_entry(filter_node, "page", last_page_id, new_page_id)
+            wrapper = filter_node.find("image-settings")
+            if wrapper is not None:
+                _clone_page_entry(wrapper, "page", last_page_id, new_page_id)
 
 
 def _reset_default_geometry(root: ET.Element) -> None:
@@ -120,14 +251,17 @@ def generate_project(
     source_dpi: int,
     template_path: Path | None = None,
 ) -> int:
-    """Generate a project while preserving template settings page-for-page."""
+    """Generate a project, adapting template settings to the input's page count.
+
+    Pages within the template's original range keep their saved per-page
+    settings, page-for-page. Pages beyond that range clone the template's last
+    page (files, filter geometry, and output recipe) under fresh ids; fewer
+    pages than the template simply drop the trailing ones. See `_resize_pages`.
+    """
     using_default_template = template_path is None
     template_path = template_path or default_template_path()
     tree = ET.parse(template_path)
     root = tree.getroot()
-
-    if using_default_template:
-        _reset_default_geometry(root)
 
     files_node = root.find("files")
     images_node = root.find("images")
@@ -136,17 +270,16 @@ def generate_project(
     if any(node is None for node in (files_node, images_node, pages_node, directory)):
         raise ScanTailorError("Template is missing required project structure")
 
+    if not (len(files_node) == len(images_node) == len(pages_node)):
+        raise ScanTailorError("Template has inconsistent file, image, and page counts")
+
+    _resize_pages(root, len(page_paths))
+
+    if using_default_template:
+        _reset_default_geometry(root)
+
     template_files = list(files_node)
     template_images = list(images_node)
-    template_pages = list(pages_node)
-    expected = len(template_pages)
-    if not (len(template_files) == len(template_images) == expected):
-        raise ScanTailorError("Template has inconsistent file, image, and page counts")
-    if len(page_paths) != expected:
-        raise ScanTailorError(
-            f"Template contains settings for {expected} pages, but the input PDF has "
-            f"{len(page_paths)} pages. The workspace has been preserved."
-        )
 
     root.set("outputDirectory", str(output_dir.resolve()))
     directory.set("path", str(page_paths[0].parent.resolve()))

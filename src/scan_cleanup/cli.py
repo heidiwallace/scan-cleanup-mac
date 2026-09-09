@@ -36,6 +36,11 @@ def _add_runtime_args(parser: argparse.ArgumentParser) -> None:
         action="store_true",
         help="Retain a successful workspace for development or inspection",
     )
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Reprocess files even if a matching output already exists",
+    )
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -118,7 +123,7 @@ def main(argv: list[str] | None = None) -> int:
         )
         if args.command == "process":
             destination = _output_path(args.input_pdf, args.output_dir)
-            if not _confirm_overwrite(destination):
+            if not args.overwrite and not _confirm_overwrite(destination):
                 print("Cancelled; existing output was not changed.")
                 return 0
             result = process_volume(
@@ -132,11 +137,19 @@ def main(argv: list[str] | None = None) -> int:
             )
             print(result)
         else:
-            for pdf_path in sorted(args.input_dir.glob("*.pdf")):
+            if not args.input_dir.is_dir():
+                raise ValueError(f"Input directory does not exist: {args.input_dir}")
+            pdf_paths = sorted(args.input_dir.glob("*.pdf"))
+            if not pdf_paths:
+                raise ValueError(f"No PDF files found in {args.input_dir}")
+            pending_paths = []
+            for pdf_path in pdf_paths:
                 destination = _output_path(pdf_path, args.output_dir)
-                if not _confirm_overwrite(destination):
-                    print(f"Skipped: {pdf_path}")
+                if destination.exists() and not args.overwrite:
+                    print(f"Skipped (output already exists): {pdf_path.name}")
                     continue
+                pending_paths.append(pdf_path)
+            for pdf_path in pending_paths:
                 process_volume(
                     pdf_path,
                     args.output_dir,
@@ -144,7 +157,7 @@ def main(argv: list[str] | None = None) -> int:
                     scantailor_executable=args.scantailor,
                     workspace_root=args.workspace_root,
                     template_path=args.template,
-                    overwrite=destination.exists(),
+                    overwrite=args.overwrite,
                 )
     except (MissingSystemDependencyError, ScanTailorError, FileNotFoundError, ValueError) as exc:
         print(f"\nError: {exc}\n", file=sys.stderr)

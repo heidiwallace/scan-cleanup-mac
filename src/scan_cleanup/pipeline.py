@@ -21,6 +21,11 @@ from scan_cleanup.workspace import WorkspaceManifest, create_workspace
 logger = logging.getLogger(__name__)
 
 
+def output_path_for(input_pdf: Path, output_dir: Path) -> Path:
+    """Return the expected output path for a given input PDF."""
+    return output_dir / f"{input_pdf.stem}_processed.pdf"
+
+
 def process_volume(
     input_pdf: Path,
     output_dir: Path,
@@ -34,7 +39,7 @@ def process_volume(
     recipe = recipe or Recipe()
     executable = resolve_scantailor(scantailor_executable)
     output_dir = output_dir.resolve()
-    output_pdf = output_dir / f"{input_pdf.stem}_processed.pdf"
+    output_pdf = output_path_for(input_pdf, output_dir)
     if output_pdf.exists() and not overwrite:
         raise FileExistsError(f"Output PDF already exists: {output_pdf}")
 
@@ -90,7 +95,7 @@ def finish_workspace(
     tiff_paths = validate_output(workspace / "out", manifest.expected_tiffs)
     actual_output_dpi = validate_tiff_dpi(tiff_paths)
     output_dir = output_dir.resolve()
-    output_pdf = output_dir / f"{Path(manifest.input_pdf).stem}_processed.pdf"
+    output_pdf = output_path_for(Path(manifest.input_pdf), output_dir)
     if output_pdf.exists() and not overwrite:
         raise FileExistsError(f"Output PDF already exists: {output_pdf}")
 
@@ -143,15 +148,34 @@ def process_batch(
     template_path: Path | None = None,
     overwrite: bool = False,
 ) -> list[Path]:
-    """Process every PDF in `input_dir`, writing corresponding outputs into `output_dir`."""
+    """Process every PDF in `input_dir`, writing corresponding outputs into `output_dir`.
+
+    PDFs whose output already exists in `output_dir` are skipped automatically
+    (unless `overwrite` is set), so a batch interrupted partway through can be
+    re-run to pick up where it left off without redoing finished files.
+    """
     recipe = recipe or Recipe()
     pdf_paths = sorted(input_dir.glob("*.pdf"))
     if not pdf_paths:
         raise ValueError(f"No PDF files found in {input_dir}")
 
     output_dir.mkdir(parents=True, exist_ok=True)
+    if overwrite:
+        pending_paths = pdf_paths
+    else:
+        pending_paths = [
+            pdf_path
+            for pdf_path in pdf_paths
+            if not output_path_for(pdf_path, output_dir).exists()
+        ]
+        skipped = len(pdf_paths) - len(pending_paths)
+        if skipped:
+            logger.info(
+                "Skipping %d file(s) with existing output in %s", skipped, output_dir
+            )
+
     results = []
-    for pdf_path in pdf_paths:
+    for pdf_path in pending_paths:
         results.append(
             process_volume(
                 pdf_path,

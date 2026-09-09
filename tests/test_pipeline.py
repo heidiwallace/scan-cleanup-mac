@@ -147,3 +147,75 @@ def test_resume_reopens_project_and_finishes(tmp_path, monkeypatch):
     assert result == tmp_path / "new-output/volume_processed.pdf"
     assert result.is_file()
     assert not workspace.exists()
+
+
+def test_process_batch_skips_inputs_with_existing_output(tmp_path, monkeypatch):
+    input_dir = tmp_path / "input"
+    input_dir.mkdir()
+    output_dir = tmp_path / "final"
+    output_dir.mkdir()
+    template = write_template(tmp_path / "template.ScanTailor")
+
+    (tmp_path / "done-source").mkdir()
+    build_pdf(tmp_path / "done-source", page_count=1).rename(input_dir / "already-done.pdf")
+    (tmp_path / "pending-source").mkdir()
+    build_pdf(tmp_path / "pending-source", page_count=1).rename(input_dir / "not-done.pdf")
+
+    existing_output = output_dir / "already-done_processed.pdf"
+    existing_output.write_bytes(b"pre-existing output, should not be touched")
+
+    def fake_launch(executable: Path, project: Path) -> None:
+        workspace = project.parent
+        for png in sorted((workspace / "input").glob("*.png")):
+            image = cv2.imread(str(png), cv2.IMREAD_UNCHANGED)
+            Image.fromarray(image).save(workspace / "out" / f"{png.stem}.tif", dpi=(1200, 1200))
+
+    monkeypatch.setattr(pipeline, "launch_scantailor", fake_launch)
+    monkeypatch.setattr(pipeline, "add_ocr_layer", fake_ocr)
+
+    results = pipeline.process_batch(
+        input_dir,
+        output_dir,
+        recipe=Recipe(),
+        scantailor_executable=Path(sys.executable),
+        workspace_root=tmp_path / "workspaces",
+        template_path=template,
+    )
+
+    assert results == [output_dir / "not-done_processed.pdf"]
+    assert results[0].is_file()
+    assert existing_output.read_bytes() == b"pre-existing output, should not be touched"
+
+
+def test_process_batch_overwrite_reprocesses_everything(tmp_path, monkeypatch):
+    input_dir = tmp_path / "input"
+    input_dir.mkdir()
+    output_dir = tmp_path / "final"
+    output_dir.mkdir()
+    template = write_template(tmp_path / "template.ScanTailor")
+
+    build_pdf(input_dir, page_count=1)
+    existing_output = output_dir / "volume_processed.pdf"
+    existing_output.write_bytes(b"stale output")
+
+    def fake_launch(executable: Path, project: Path) -> None:
+        workspace = project.parent
+        for png in sorted((workspace / "input").glob("*.png")):
+            image = cv2.imread(str(png), cv2.IMREAD_UNCHANGED)
+            Image.fromarray(image).save(workspace / "out" / f"{png.stem}.tif", dpi=(1200, 1200))
+
+    monkeypatch.setattr(pipeline, "launch_scantailor", fake_launch)
+    monkeypatch.setattr(pipeline, "add_ocr_layer", fake_ocr)
+
+    results = pipeline.process_batch(
+        input_dir,
+        output_dir,
+        recipe=Recipe(),
+        scantailor_executable=Path(sys.executable),
+        workspace_root=tmp_path / "workspaces",
+        template_path=template,
+        overwrite=True,
+    )
+
+    assert results == [existing_output]
+    assert existing_output.read_bytes() != b"stale output"
