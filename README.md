@@ -3,62 +3,11 @@
 `scan-cleanup` coordinates an interactive ScanTailor Advanced workflow for
 scanned PDFs:
 
-1. Extract each PDF page to an ordered PNG in a persistent run workspace.
-2. Generate and open a ScanTailor Advanced project using the bundled settings.
-3. Wait while the user reviews settings and produces TIFF pages in `out/`.
-4. After ScanTailor closes, validate that every source page has exactly one TIFF.
-5. Assemble TIFFs in the original PDF page order.
-6. Add an invisible OCR layer and write `<input-name>_processed.pdf`.
-
-The package never trusts filesystem iteration for page order. The extraction
-order is recorded in `workspace.json`, and TIFFs are assembled only after a
-complete one-to-one filename validation.
-
-## Current development scope
-
-The bundled project template contains the settings saved during the first
-successful end-to-end test, including 600 DPI output and page-specific
-transformations for 40 pages. Saved Select Content and Page Layout
-geometry is cleared when a default project is generated. Content detection starts
-disabled; Page Box detection starts on Auto with Fine Tune Page Corners enabled.
-Page Layout starts with "Match size with other pages" unchecked.
-
-### Default ScanTailor settings
-
-These are the Output-stage settings baked into the bundled project template
-and applied to every page by default. Any of them can be changed per-page (or
-for the whole batch) inside the interactive ScanTailor Advanced session before
-processing:
-
-- Output DPI = 600
-- Color mode = Black and white
-- Binarization method = Otsu
-- Otsu threshold adjustment = -15 (renders text thinner than a plain Otsu threshold)
-- Despeckle level = 2 (Normal)
-- Morphological smoothing = on
-- Normalize illumination (B&W) = on
-- Picture shape detection = Free, sensitivity 100
-- Dewarping = off
-- Content detection = disabled (Page Box detection: Auto, Fine Tune Page Corners = on)
-- Match page size with other pages = off
-
-Inputs are not limited to 40 pages. An input with fewer pages uses the
-template's first N pages' settings; an input with more pages clones the
-template's last page (files, filter settings, and the output recipe) for each
-additional page, under fresh ids. Cloned pages inherit the same output recipe
-(DPI, binarization, etc.) as the rest of the volume, but their auto-detected
-geometry (page split, deskew, fix orientation) is a starting point, not a
-guarantee — review it like any other page during the interactive ScanTailor
-session.
-
-Successful workspaces are deleted after the final OCR PDF has been written.
-Failed or incomplete workspaces are always retained. During development, pass
-`--keep-workspace` to retain a successful workspace for inspection.
-
-`resolve_scantailor()`'s fixed-location discovery (see "Installing ScanTailor
-Advanced" below) only checks macOS install paths. On Linux and Windows it
-still falls back to bare PATH discovery, with no fixed-location safety net —
-adding equivalent fixed candidates for those platforms is planned.
+1. Extract each PDF page to an ordered PNG file in a temporary workspace.
+2. Generate and open a ScanTailor Advanced project using the pre-specified settings.
+3. Wait while the user reviews settings. When the user closes the ScanTailor program, automatically produce separate TIFF pages in `out/` and validate that every source page has exactly one TIFF.
+4. Assemble TIFFs in the original PDF page order.
+5. Add an invisible OCR layer and write `<input-name>_processed.pdf`.
 
 ## Requirements
 
@@ -144,17 +93,6 @@ On success, only the original input PDF and final processed PDF are retained.
 Use `--keep-workspace` when intermediate PNGs, TIFFs, the project, and the
 pre-OCR assembled PDF are needed for development or inspection.
 
-The workspace location depends only on `--workspace-root`; it is unrelated to
-where the input PDF or output directory live (`workspace.py`'s
-`create_workspace`). Without `--workspace-root`, the workspace is created under
-the OS default temp directory (macOS: `$TMPDIR`, e.g.
-`/var/folders/.../T/scan-cleanup-<stem>-<random>/`) regardless of whether the
-input or output paths are inside a cloud-synced folder (Google Drive, Dropbox,
-etc.) — so the hundreds of intermediate PNGs/TIFFs never get written into a
-folder a sync client is watching, even with no flag at all. Passing
-`--workspace-root DIR` only changes this for choosing a stable, inspectable
-path (e.g. for use with `--keep-workspace`); if `DIR` is itself inside a
-cloud-synced folder, prefer a local, non-synced path instead.
 
 ## Resume a failed workspace
 
@@ -182,16 +120,81 @@ automatically, without prompting — so if the batch is interrupted partway
 through, re-running the same command picks up only the unfinished files. Pass
 `--overwrite` to reprocess everything instead.
 
-## Development
+
+
+## Technical appendix
+
+
+The GitHub Actions workflow performs the same lint, test, and package-build
+checks on pushes and pull requests.
+
+
+### Development
 
 ```bash
 uv run pytest
 uv run ruff check .
 uv build
-```
+``
 
-The GitHub Actions workflow performs the same lint, test, and package-build
-checks on pushes and pull requests.
+### Current development scope
 
-The pre-revamp Python image-processing implementation is stored under
-`.snapshots/` with a SHA-256 checksum and is not part of the new Git history.
+The bundled project template contains the settings saved during the first
+successful end-to-end test, including 600 DPI output and page-specific
+transformations for 40 pages. Saved Select Content and Page Layout
+geometry is cleared when a default project is generated. Content detection starts
+disabled; Page Box detection starts on Auto with Fine Tune Page Corners enabled.
+Page Layout starts with "Match size with other pages" unchecked.
+
+### Default ScanTailor settings
+
+These are the Output-stage settings baked into the bundled project template
+and applied to every page by default. Any of them can be changed per-page (or
+for the whole batch) inside the interactive ScanTailor Advanced session before
+processing:
+
+- Output DPI = 600
+- Color mode = Black and white
+- Binarization method = Otsu
+- Otsu threshold adjustment = -15 (renders text thinner than a plain Otsu threshold)
+- Despeckle level = 2 (Normal)
+- Morphological smoothing = on
+- Normalize illumination (B&W) = on
+- Picture shape detection = Free, sensitivity 100
+- Dewarping = off
+- Content detection = disabled (Page Box detection: Auto, Fine Tune Page Corners = on)
+- Match page size with other pages = off
+
+Inputs are not limited to 40 pages. An input with fewer pages uses the
+template's first N pages' settings; an input with more pages clones the
+template's last page (files, filter settings, and the output recipe) for each
+additional page, under fresh ids. Cloned pages inherit the same output recipe
+(DPI, binarization, etc.) as the rest of the volume, but their auto-detected
+geometry (page split, deskew, fix orientation) is a starting point, not a
+guarantee — review it like any other page during the interactive ScanTailor
+session.
+
+The workspace location depends only on `--workspace-root`; it is unrelated to
+where the input PDF or output directory live (`workspace.py`'s
+`create_workspace`). Without `--workspace-root`, the workspace is created under
+the OS default temp directory (macOS: `$TMPDIR`, e.g.
+`/var/folders/.../T/scan-cleanup-<stem>-<random>/`) regardless of whether the
+input or output paths are inside a cloud-synced folder (Google Drive, Dropbox,
+etc.) — so the hundreds of intermediate PNGs/TIFFs never get written into a
+folder a sync client is watching, even with no flag at all. Passing
+`--workspace-root DIR` only changes this for choosing a stable, inspectable
+path (e.g. for use with `--keep-workspace`); if `DIR` is itself inside a
+cloud-synced folder, prefer a local, non-synced path instead.
+
+Successful workspaces are deleted after the final OCR PDF has been written.
+Failed or incomplete workspaces are always retained. During development, pass
+`--keep-workspace` to retain a successful workspace for inspection.
+
+The package never trusts filesystem iteration for page order. The extraction
+order is recorded in `workspace.json`, and TIFFs are assembled only after a
+complete one-to-one filename validation.
+
+`resolve_scantailor()`'s fixed-location discovery (see "Installing ScanTailor
+Advanced" below) only checks macOS install paths. On Linux and Windows it
+still falls back to bare PATH discovery, with no fixed-location safety net —
+adding equivalent fixed candidates for those platforms is planned.
