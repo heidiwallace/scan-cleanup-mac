@@ -76,6 +76,11 @@ scanned pages (Tesseract), and one that helps assemble the final PDF
 brew install tesseract ghostscript
 ```
 
+A standard install is found automatically by `scan-cleanup` — there's
+nothing else to do here, even if a plain `tesseract --version` or `gs
+--version` in Terminal says "command not found" (that command only checks
+your shell's own settings, which `scan-cleanup` doesn't depend on).
+
 ### Step 4: Install uv
 
 `uv` is the tool `scan-cleanup` uses to set itself up and run. Install it
@@ -89,33 +94,39 @@ brew install uv
 to install that yourself; `uv` will take care of it automatically the first
 time it's needed.)
 
-### Step 5: Download and set up scan-cleanup
+### Step 5: Install scan-cleanup
 
-Choose a location for `scan-cleanup` — for example, your Documents folder —
-and navigate there in Terminal. If you'd like to put it in Documents, run:
+Installing `scan-cleanup` uses Git, a program for downloading project code.
+macOS will typically offer to install this automatically the first time
+it's needed — if a window pops up asking to install developer tools, click
+**Install** and wait for it to finish, then continue below.
 
-```bash
-cd ~/Documents
-```
-
-Then download a copy of `scan-cleanup` and set it up:
+Install `scan-cleanup` itself:
 
 ```bash
-git clone https://github.com/heidiwallace/scan-cleanup-mac.git scan-cleanup
-cd scan-cleanup
-uv sync
+uv tool install git+https://github.com/heidiwallace/scan-cleanup-mac
 ```
 
-That's it — setup is done, and you should now have a `scan-cleanup` folder
-inside Documents (or wherever you chose). From now on, run every command
-below from inside that folder — if you ever close Terminal and reopen it,
-just run `cd ~/Documents/scan-cleanup` (adjusting the path if you chose
-somewhere else) to get back there.
+That's it — `scan-cleanup` is now installed, ready to use from any folder,
+with no project folder to keep track of.
+
+If you see a warning like `... is not on your PATH`, run this once (it's a
+one-time fix — you won't need to repeat it after future installs):
+
+```bash
+uv tool update-shell
+```
+
+**Close this Terminal window and open a new one** afterward, so the
+`scan-cleanup` command is recognized. To check it worked, run:
+
+```bash
+scan-cleanup --help
+```
+
+It should print usage instructions rather than saying "command not found."
 
 ## Using scan-cleanup
-
-Remember to `cd` into the `scan-cleanup` folder first (see Step 5 above) if
-you've just opened a new Terminal window.
 
 In the commands below, replace anything in ALL CAPS with your own file or
 folder path — for example, `INPUT.pdf` becomes the actual path to your PDF,
@@ -129,7 +140,7 @@ will fill in the correct path for you.
 To clean up a single scanned PDF, run:
 
 ```bash
-uv run scan-cleanup process INPUT.pdf OUTPUT_DIRECTORY
+scan-cleanup process INPUT.pdf OUTPUT_DIRECTORY
 ```
 
 Replace `INPUT.pdf` with the path to your scanned PDF, and
@@ -163,7 +174,7 @@ being kept (this location is called the "workspace"). Fix the problem, then
 pick up where you left off with:
 
 ```bash
-uv run scan-cleanup resume WORKSPACE OUTPUT_DIRECTORY
+scan-cleanup resume WORKSPACE OUTPUT_DIRECTORY
 ```
 
 (Use the workspace location `scan-cleanup` showed you.) This reopens
@@ -176,7 +187,7 @@ If you have a whole folder of scanned PDFs to clean up, you can process them
 one after another with a single command:
 
 ```bash
-uv run scan-cleanup batch INPUT_DIRECTORY OUTPUT_DIRECTORY
+scan-cleanup batch INPUT_DIRECTORY OUTPUT_DIRECTORY
 ```
 
 ScanTailor Advanced will open once for each PDF in turn. If you need to stop
@@ -185,111 +196,3 @@ that's already been finished will be skipped automatically, so you'll pick up
 right where you left off. If you'd like to redo files that were already
 finished, add `--overwrite` to the command.
 
-
-
-## Technical appendix
-
-The rest of this README is written for contributors working on the
-`scan-cleanup` codebase itself — it isn't needed to run the tool day to day.
-
-### Development
-
-Before opening a pull request, run the same checks the CI workflow runs:
-
-```bash
-uv run pytest
-uv run ruff check .
-uv build
-```
-
-GitHub Actions runs these three commands (lint, test, package build) on every
-push and on every pull request.
-
-### The bundled ScanTailor project template
-
-Rather than generating a bare ScanTailor Advanced project from scratch for
-every job, `scan-cleanup` ships a pre-configured project file at
-`src/scan_cleanup/templates/scantailor-advanced-default.scantailor` and adapts
-it to each input. This gives every job the same sensible Output-stage starting
-point without the user having to configure ScanTailor Advanced by hand each
-time (see "Default ScanTailor settings" below for exactly what it sets).
-
-The template itself is just the project file saved at the end of the first
-successful end-to-end test, so it reflects one real, human-reviewed 40-page
-session (600 DPI output, plus that session's per-page transformations) rather
-than being written by hand. Because the per-page geometry it contains (Select
-Content, Page Layout) belongs to that specific 40-page scan, `scan-cleanup`
-clears it when generating a new project — every job starts from a blank page
-layout, while keeping the template's Output-stage recipe intact. Content
-detection starts disabled; Page Box detection starts on Auto with Fine Tune
-Page Corners enabled; "Match page size with other pages" starts unchecked.
-
-### Default ScanTailor settings
-
-These are the Output-stage settings baked into the bundled project template
-and applied to every page by default. Any of them can be changed per-page (or
-for the whole batch) inside the interactive ScanTailor Advanced session before
-processing:
-
-- Output DPI = 600
-- Color mode = Black and white
-- Binarization method = Otsu
-- Otsu threshold adjustment = -15 (renders text thinner than a plain Otsu threshold)
-- Despeckle level = 2 (Normal)
-- Morphological smoothing = on
-- Normalize illumination (B&W) = on
-- Picture shape detection = Free, sensitivity 100
-- Dewarping = off
-- Content detection = disabled (Page Box detection: Auto, Fine Tune Page Corners = on)
-- Match page size with other pages = off
-
-### Input page counts beyond the template
-
-Inputs are not limited to 40 pages. An input with fewer pages uses the
-template's first N pages' settings; an input with more pages clones the
-template's last page (files, filter settings, and the output recipe) for each
-additional page, under fresh ids. Cloned pages inherit the same output recipe
-(DPI, binarization, etc.) as the rest of the volume, but their auto-detected
-geometry (page split, deskew, fix orientation) is a starting point, not a
-guarantee — review it like any other page during the interactive ScanTailor
-session.
-
-### Workspace location and lifecycle
-
-Each run creates a "workspace": a directory holding the extracted PNGs, the
-generated `.ScanTailor` project, the resulting TIFFs, `workspace.json` (see
-"Page ordering guarantee" below), and — once assembled — the pre-OCR PDF.
-
-The workspace location depends only on `--workspace-root`; it is unrelated to
-where the input PDF or output directory live (`workspace.py`'s
-`create_workspace`). Without `--workspace-root`, the workspace is created under
-the OS default temp directory (macOS: `$TMPDIR`, e.g.
-`/var/folders/.../T/scan-cleanup-<stem>-<random>/`, where `<stem>` is the
-input filename without its extension) regardless of whether the input or
-output paths are inside a cloud-synced folder (Google Drive, Dropbox, etc.) —
-so the hundreds of intermediate PNGs/TIFFs never get written into a folder a
-sync client is watching, even with no flag at all. Passing
-`--workspace-root DIR` only changes this for choosing a stable, inspectable
-path (e.g. for use with `--keep-workspace`); if `DIR` is itself inside a
-cloud-synced folder, prefer a local, non-synced path instead.
-
-Successful workspaces are deleted after the final OCR PDF has been written.
-Failed or incomplete workspaces are always retained, so their contents can be
-inspected to diagnose what went wrong. During development, pass
-`--keep-workspace` to retain a successful workspace for inspection too.
-
-### Page ordering guarantee
-
-The package never trusts filesystem iteration (e.g. directory listing order)
-to determine page order, since that isn't guaranteed to match the original
-PDF's page order across filesystems. Instead, the extraction step records the
-authoritative order in `workspace.json`, and the final TIFFs are assembled
-only after a complete one-to-one filename validation against that record.
-
-### ScanTailor Advanced discovery on Linux and Windows
-
-`resolve_scantailor()`'s fixed-location discovery (see "Step 2: Install
-ScanTailor Advanced" above) only checks macOS install paths (the Homebrew
-prefix and the official `.app` bundle location). On Linux and Windows it still
-falls back to bare `PATH` discovery, with no fixed-location safety net —
-adding equivalent fixed candidates for those platforms is planned.

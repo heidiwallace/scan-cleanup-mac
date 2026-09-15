@@ -9,6 +9,7 @@ dist/
 .snapshots/
 development-workspaces/
 CLAUDE.md
+TROUBLESHOOTING.md
 
 # Real scan data used for local/manual testing: potentially large and/or
 # contains real archival content, never committed.

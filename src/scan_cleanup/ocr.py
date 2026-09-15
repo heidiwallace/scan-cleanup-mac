@@ -1,6 +1,8 @@
 """Adds an invisible, searchable text layer to the final PDF via ocrmypdf."""
 
+import os
 import shutil
+import sys
 from pathlib import Path
 
 import ocrmypdf
@@ -36,7 +38,42 @@ class MissingSystemDependencyError(RuntimeError):
     """Raised when a required non-Python program (Tesseract, Ghostscript) is missing."""
 
 
+def _find_macos_homebrew_bin(command: str) -> Path | None:
+    """Locate a Homebrew-installed binary directly, without relying on PATH.
+
+    Mirrors resolve_scantailor()'s fixed-location fallback in
+    scantailor.py: Homebrew's install prefix isn't guaranteed to be on PATH
+    in every execution context (e.g. a non-interactive shell, a LaunchAgent,
+    or a shell profile that was never updated), so a genuinely installed
+    Tesseract or Ghostscript can still resolve to "missing" via
+    shutil.which alone.
+    """
+    for prefix in ("/opt/homebrew", "/usr/local"):  # Apple Silicon, Intel
+        candidate = Path(prefix, "bin", command)
+        if candidate.is_file():
+            return candidate
+    return None
+
+
+def _ensure_macos_homebrew_discoverable() -> None:
+    """Make a standard Homebrew install of Tesseract/Ghostscript visible to
+    shutil.which and ocrmypdf, even when Homebrew's prefix isn't on PATH.
+
+    Prepending the discovered folder to this process's PATH makes it visible
+    both to the check below and to every subprocess ocrmypdf launches
+    afterward (subprocesses inherit the parent's environment).
+    """
+    for command in _REQUIRED_BINARIES:
+        if shutil.which(command):
+            continue
+        found = _find_macos_homebrew_bin(command)
+        if found is not None:
+            os.environ["PATH"] = str(found.parent) + os.pathsep + os.environ.get("PATH", "")
+
+
 def check_system_dependencies() -> None:
+    if sys.platform == "darwin":
+        _ensure_macos_homebrew_discoverable()
     missing = [name for name in _REQUIRED_BINARIES if shutil.which(name) is None]
     if missing:
         missing_desc = ", ".join(f"'{name}' ({_REQUIRED_BINARIES[name]})" for name in missing)
