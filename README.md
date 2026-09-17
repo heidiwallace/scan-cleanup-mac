@@ -38,9 +38,28 @@ ScanTailor Advanced is the program you'll use to review and adjust each scanned 
 
 ``` bash
 brew install cmake ninja qt jpeg-turbo libpng libtiff
+```
+
+``` bash
 git clone https://github.com/ScanTailor-Advanced/scantailor-advanced.git
+```
+
+``` bash
 cmake -S scantailor-advanced -B scantailor-advanced/build -G Ninja -DCMAKE_BUILD_TYPE=Release
+```
+
+> If you run into an error at this step because the Boost program is missing, run these lines of code to install Boost. Then re-run the command above.
+>
+> ``` bash
+> brew install boost
+> brew --prefix boost
+> ```
+
+``` bash
 cmake --build scantailor-advanced/build
+```
+
+``` bash
 cmake --install scantailor-advanced/build --prefix "$(brew --prefix)"
 ```
 
@@ -111,6 +130,8 @@ OUTPUT_DIRECTORY/INPUT_processed.pdf
 If a file with that name already exists, you'll be asked to confirm before it gets replaced.
 
 Shortly after you run the command, ScanTailor Advanced will open on its own with your pages already loaded and good default settings applied. Look through the pages, make any adjustments you'd like, then process all the pages and close the ScanTailor Advanced window. `scan-cleanup` will notice the window closed and automatically finish the job — assembling the pages and making the text searchable.
+
+Before closing ScanTailor Advanced, you must batch-process every page to produce the output files. Click on each of the steps 3-6 (Deskew, Select Content, Margins, and Output) in the panel on the left and click the play (▶) button to process all of them. Wait for it to finish (the thumbnails will show the finished page images) before closing the window. If you skip this step, ScanTailor Advanced won't have actually written any output files, and scan-cleanup will report every page as missing.
 
 ### If something goes wrong partway through
 
